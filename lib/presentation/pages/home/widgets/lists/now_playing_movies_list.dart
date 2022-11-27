@@ -17,8 +17,13 @@ class NowPlayingMovieList extends StatelessWidget {
           );
         } else if (state is NowPlayingMovieStateLoaded) {
           return MovieList(state.listMovie);
+        } else if (state is NowPlayingMovieStateFailed) {
+          return Center(
+            key: const Key('error_message'),
+            child: Text(state.message),
+          );
         } else {
-          return const Text('Failed');
+          return const Center(child: Text('Failed'));
         }
       },
     );

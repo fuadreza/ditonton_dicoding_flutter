@@ -1,6 +1,9 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/about/about_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/home_movie_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'presentation/pages/popular_movie/popular_movies_page.dart';
 
 class AppNavigator {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
@@ -9,8 +12,8 @@ class AppNavigator {
     switch (settings.name) {
       case '/home':
         return MaterialPageRoute(builder: (_) => const HomeMoviePage());
-      // case PopularMoviesPage.ROUTE_NAME:
-      //   return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
+      case PopularMoviesPage.routeName:
+        return CupertinoPageRoute(builder: (_) => const PopularMoviesPage());
       // case TopRatedMoviesPage.ROUTE_NAME:
       //   return CupertinoPageRoute(builder: (_) => TopRatedMoviesPage());
       // case MovieDetailPage.ROUTE_NAME:

@@ -1,0 +1,1 @@
+enum ListDirection { vertical, horizontal }

@@ -17,8 +17,13 @@ class TopRatedMovieList extends StatelessWidget {
           );
         } else if (state is TopRatedMovieStateLoaded) {
           return MovieList(state.listMovie);
+        } else if (state is TopRatedMovieStateFailed) {
+          return Center(
+            key: const Key('error_message'),
+            child: Text(state.message),
+          );
         } else {
-          return const Text('Failed');
+          return const Center(child: Text('Failed'));
         }
       },
     );

@@ -4,6 +4,7 @@ import 'package:ditonton_dicoding_flutter/presentation/pages/home/widgets/labels
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/widgets/lists/now_playing_movies_list.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/widgets/lists/popular_movies_list.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/widgets/lists/top_rated_movies_list.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/popular_movie/popular_movies_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeMovieScreen extends StatelessWidget {
@@ -71,7 +72,7 @@ class HomeMovieScreen extends StatelessWidget {
               SubHeading(
                 title: 'Popular',
                 onTap: () {
-                  // Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME);
+                  Navigator.pushNamed(context, PopularMoviesPage.routeName);
                 },
               ),
               const PopularMovieList(),
