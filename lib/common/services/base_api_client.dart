@@ -1,10 +1,13 @@
+import 'dart:developer';
+
 import 'package:ditonton_dicoding_flutter/common/exception.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class BaseApiClient {
   final http.Client client;
 
-  final baseUrl = 'https://api.themoviedb.org/3';
+  final baseUrl = 'api.themoviedb.org';
   final apiKey = '2174d146bb9c0eab47529b2e77d6b526';
 
   BaseApiClient({required this.client});
@@ -16,7 +19,7 @@ class BaseApiClient {
       newParam.addAll(params);
     }
 
-    final uri = path == null ? Uri.https(baseUrl, url, params) : Uri.https(baseUrl, url + path, params);
+    final uri = path == null ? Uri.https(baseUrl, url, newParam) : Uri.https(baseUrl, url + path, newParam);
 
     try {
       final response = await client.get(
@@ -25,6 +28,10 @@ class BaseApiClient {
           'Content-Type': 'application/json',
         },
       );
+
+      if (!kReleaseMode) {
+        log('RESPONSE GET > ${response.body} | $uri');
+      }
 
       if (response.statusCode == 200) {
         return response.body;

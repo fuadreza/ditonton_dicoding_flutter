@@ -26,35 +26,35 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
 
   @override
   Future<List<MovieModel>> getNowPlayingMovies() async {
-    final response = await client.get(url: '/movie/now_playing');
+    final response = await client.get(url: '/3/movie/now_playing');
 
     return MovieResponse.fromJson(json.decode(response)).movieList;
   }
 
   @override
   Future<MovieDetailResponse> getMovieDetail(int id) async {
-    final response = await client.get(url: '/movie/$id');
+    final response = await client.get(url: '/3/movie/$id');
 
     return MovieDetailResponse.fromJson(json.decode(response));
   }
 
   @override
   Future<List<MovieModel>> getMovieRecommendations(int id) async {
-    final response = await client.get(url: '/movie/$id/recommendations');
+    final response = await client.get(url: '/3/movie/$id/recommendations');
 
     return MovieResponse.fromJson(json.decode(response)).movieList;
   }
 
   @override
   Future<List<MovieModel>> getPopularMovies() async {
-    final response = await client.get(url: '/movie/popular');
+    final response = await client.get(url: '/3/movie/popular');
 
     return MovieResponse.fromJson(json.decode(response)).movieList;
   }
 
   @override
   Future<List<MovieModel>> getTopRatedMovies() async {
-    final response = await client.get(url: '/movie/top_rated');
+    final response = await client.get(url: '/3/movie/top_rated');
 
     return MovieResponse.fromJson(json.decode(response)).movieList;
   }
@@ -62,7 +62,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   @override
   Future<List<MovieModel>> searchMovies(String query) async {
     final params = {'query': query};
-    final response = await client.get(url: '/search/movie', params: params);
+    final response = await client.get(url: '/3/search/movie', params: params);
 
     return MovieResponse.fromJson(json.decode(response)).movieList;
   }

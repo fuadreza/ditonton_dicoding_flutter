@@ -1,3 +1,4 @@
+import 'package:ditonton_dicoding_flutter/common/services/base_api_client.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/db/database_helper.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/movie_local_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/movie_remote_data_source.dart';
@@ -13,6 +14,9 @@ import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_status.d
 import 'package:ditonton_dicoding_flutter/domain/usecases/remove_watchlist.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/save_watchlist.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/search_movies.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/now_playing/now_playing_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/popular/popular_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/top_rated/top_rated_movie_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 
@@ -20,6 +24,21 @@ final locator = GetIt.instance;
 
 void init() {
   //#region BLOC
+  locator.registerFactory(
+    () => NowPlayingMovieBloc(
+      getNowPlayingMovies: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => PopularMovieBloc(
+      getPopularMovies: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => TopRatedMovieBloc(
+      getTopRatedMovies: locator(),
+    ),
+  );
   //#endregion BLOC
 
   //#region USE CASES
@@ -60,6 +79,11 @@ void init() {
   //#region HELPER
   locator.registerLazySingleton<DatabaseHelper>(
     () => DatabaseHelper(),
+  );
+  locator.registerLazySingleton<BaseApiClient>(
+    () => BaseApiClient(
+      client: locator(),
+    ),
   );
   //#endregion HELPER
 
