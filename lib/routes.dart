@@ -1,6 +1,7 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/about/about_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/home_movie_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/movie_detail_page.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search/search_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +26,8 @@ class AppNavigator {
           builder: (_) => MovieDetailPage(id: id),
           settings: settings,
         );
-      // case SearchPage.ROUTE_NAME:
-      //   return CupertinoPageRoute(builder: (_) => SearchPage());
+      case SearchMoviePage.routeName:
+        return CupertinoPageRoute(builder: (_) => const SearchMoviePage());
       case WatchListMoviesPage.routeName:
         return MaterialPageRoute(builder: (_) => const WatchListMoviesPage());
       case AboutPage.routeName:
