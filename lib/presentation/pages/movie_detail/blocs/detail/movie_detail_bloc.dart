@@ -1,4 +1,4 @@
-import 'package:ditonton_dicoding_flutter/domain/entities/movie.dart';
+import 'package:ditonton_dicoding_flutter/domain/entities/movie_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_movie_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_status.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/remove_watchlist.dart';
@@ -19,7 +19,8 @@ class MovieDetailBloc extends Cubit<MovieDetailState> {
   final SaveWatchlist saveWatchlist;
   final RemoveWatchlist removeWatchlist;
 
-  final List<Movie> listRecommendationMovies = [];
+  late MovieDetail _movieDetail;
+  bool _isAddedToWatchList = false;
 
   void getMovie(int id) async {
     final result = await getMovieDetail.execute(id);
@@ -29,7 +30,53 @@ class MovieDetailBloc extends Cubit<MovieDetailState> {
         emit(MovieDetailStateFailed(message: failure.message));
       },
       (movieData) {
+        _movieDetail = movieData;
+        _isAddedToWatchList = resultWatchListStatus;
         emit(MovieDetailStateLoaded(movie: movieData, isAddedToWatchList: resultWatchListStatus));
+      },
+    );
+  }
+
+  void addWatchList(MovieDetail movie) async {
+    final result = await saveWatchlist.execute(movie);
+
+    await result.fold(
+      (failure) async {
+        emit(MovieDetailStateLoaded(
+          movie: _movieDetail,
+          isAddedToWatchList: _isAddedToWatchList,
+          message: failure.message,
+        ));
+      },
+      (successMessage) async {
+        _isAddedToWatchList = !_isAddedToWatchList;
+        emit(MovieDetailStateLoaded(
+          movie: _movieDetail,
+          isAddedToWatchList: _isAddedToWatchList,
+          message: successMessage,
+        ));
+      },
+    );
+  }
+
+  void removeFromWatchList(MovieDetail movie) async {
+    final result = await removeWatchlist.execute(movie);
+
+    await result.fold(
+      (failure) async {
+        emit(MovieDetailStateLoaded(
+          movie: _movieDetail,
+          isAddedToWatchList: _isAddedToWatchList,
+          message: failure.message,
+        ));
+      },
+      (successMessage) async {
+        _isAddedToWatchList = !_isAddedToWatchList;
+        emit(MovieDetailStateLoaded(
+          movie: _movieDetail,
+          isAddedToWatchList: _isAddedToWatchList,
+          message: successMessage,
+        ));
       },
     );
   }

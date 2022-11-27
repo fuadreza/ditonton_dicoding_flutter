@@ -2,8 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton_dicoding_flutter/common/constants.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/genre.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/movie_detail.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/detail/movie_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/widgets/lists/recommendation_movie_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class DetailMovieContent extends StatelessWidget {
@@ -54,40 +56,11 @@ class DetailMovieContent extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () async {
-                                // if (!isAddedWatchlist) {
-                                //   await Provider.of<MovieDetailNotifier>(
-                                //           context,
-                                //           listen: false)
-                                //       .addWatchlist(movie);
-                                // } else {
-                                //   await Provider.of<MovieDetailNotifier>(
-                                //           context,
-                                //           listen: false)
-                                //       .removeFromWatchlist(movie);
-                                // }
-                                //
-                                // final message =
-                                //     Provider.of<MovieDetailNotifier>(context,
-                                //             listen: false)
-                                //         .watchlistMessage;
-                                //
-                                // if (message ==
-                                //         MovieDetailNotifier
-                                //             .watchlistAddSuccessMessage ||
-                                //     message ==
-                                //         MovieDetailNotifier
-                                //             .watchlistRemoveSuccessMessage) {
-                                //   ScaffoldMessenger.of(context).showSnackBar(
-                                //       SnackBar(content: Text(message)));
-                                // } else {
-                                //   showDialog(
-                                //       context: context,
-                                //       builder: (context) {
-                                //         return AlertDialog(
-                                //           content: Text(message),
-                                //         );
-                                //       });
-                                // }
+                                if (!isAddedWatchlist) {
+                                  context.read<MovieDetailBloc>().addWatchList(movie);
+                                } else {
+                                  context.read<MovieDetailBloc>().removeFromWatchList(movie);
+                                }
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,

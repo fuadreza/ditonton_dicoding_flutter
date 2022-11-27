@@ -14,15 +14,18 @@ class MovieDetailStateLoaded extends MovieDetailState {
   const MovieDetailStateLoaded({
     required this.movie,
     required this.isAddedToWatchList,
+    this.message,
   });
 
   final MovieDetail movie;
   final bool isAddedToWatchList;
+  final String? message;
 
   @override
   List<Object?> get props => [
         movie,
         isAddedToWatchList,
+        message,
       ];
 }
 

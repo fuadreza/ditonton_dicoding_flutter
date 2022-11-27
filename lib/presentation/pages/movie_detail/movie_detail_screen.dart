@@ -10,7 +10,18 @@ class MovieDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<MovieDetailBloc, MovieDetailState>(
+      body: BlocConsumer<MovieDetailBloc, MovieDetailState>(
+        listener: (context, state) {
+          if (state is MovieDetailStateLoaded) {
+            if (state.message != null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('${state.message}'),
+                ),
+              );
+            }
+          }
+        },
         builder: (context, state) {
           if (state is MovieDetailStateLoading) {
             return const Center(
