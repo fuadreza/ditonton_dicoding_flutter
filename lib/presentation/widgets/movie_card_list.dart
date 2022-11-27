@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton_dicoding_flutter/common/constants.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/movie.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/movie_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {
@@ -14,11 +15,11 @@ class MovieCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 4),
       child: InkWell(
         onTap: () {
-          // Navigator.pushNamed(
-          //   context,
-          //   MovieDetailPage.ROUTE_NAME,
-          //   arguments: movie.id,
-          // );
+          Navigator.pushNamed(
+            context,
+            MovieDetailPage.routeName,
+            arguments: movie.id,
+          );
         },
         child: Stack(
           alignment: Alignment.bottomLeft,

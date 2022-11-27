@@ -17,6 +17,8 @@ import 'package:ditonton_dicoding_flutter/domain/usecases/search_movies.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/now_playing/now_playing_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/popular/popular_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/top_rated/top_rated_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/detail/movie_detail_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/recommendation/movie_recommendation_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 
@@ -37,6 +39,19 @@ void init() {
   locator.registerFactory(
     () => TopRatedMovieBloc(
       getTopRatedMovies: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => MovieDetailBloc(
+      getMovieDetail: locator(),
+      getWatchListStatus: locator(),
+      saveWatchlist: locator(),
+      removeWatchlist: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => MovieRecommendationBloc(
+      getMovieRecommendations: locator(),
     ),
   );
   //#endregion BLOC
