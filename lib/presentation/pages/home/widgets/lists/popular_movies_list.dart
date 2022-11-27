@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PopularMovieList extends StatelessWidget {
-  const PopularMovieList({Key? key, this.listDirection = ListDirection.horizontal}) : super(key: key);
+  const PopularMovieList({
+    Key? key,
+    this.listDirection = ListDirection.horizontal,
+  }) : super(key: key);
 
   final ListDirection listDirection;
 

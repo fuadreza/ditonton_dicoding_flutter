@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'presentation/pages/popular_movie/popular_movies_page.dart';
+import 'presentation/pages/top_rated_movies/top_rated_movies_page.dart';
 
 class AppNavigator {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
@@ -14,8 +15,8 @@ class AppNavigator {
         return MaterialPageRoute(builder: (_) => const HomeMoviePage());
       case PopularMoviesPage.routeName:
         return CupertinoPageRoute(builder: (_) => const PopularMoviesPage());
-      // case TopRatedMoviesPage.ROUTE_NAME:
-      //   return CupertinoPageRoute(builder: (_) => TopRatedMoviesPage());
+      case TopRatedMoviesPage.routeName:
+        return CupertinoPageRoute(builder: (_) => const TopRatedMoviesPage());
       // case MovieDetailPage.ROUTE_NAME:
       //   final id = settings.arguments as int;
       //   return MaterialPageRoute(
