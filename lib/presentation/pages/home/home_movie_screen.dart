@@ -6,6 +6,7 @@ import 'package:ditonton_dicoding_flutter/presentation/pages/home/widgets/lists/
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/widgets/lists/top_rated_movies_list.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/popular_movie/popular_movies_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/top_rated_movies/top_rated_movies_page.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/watchlist_movies_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeMovieScreen extends StatelessWidget {
@@ -35,7 +36,7 @@ class HomeMovieScreen extends StatelessWidget {
               leading: const Icon(Icons.save_alt),
               title: const Text('Watchlist'),
               onTap: () {
-                // Navigator.pushNamed(context, WatchlistMoviesPage.ROUTE_NAME);
+                Navigator.pushNamed(context, WatchListMoviesPage.routeName);
               },
             ),
             ListTile(

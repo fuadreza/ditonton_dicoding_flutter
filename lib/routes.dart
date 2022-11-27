@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import 'presentation/pages/popular_movie/popular_movies_page.dart';
 import 'presentation/pages/top_rated_movies/top_rated_movies_page.dart';
+import 'presentation/pages/watchlist_movies/watchlist_movies_page.dart';
 
 class AppNavigator {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
@@ -26,8 +27,8 @@ class AppNavigator {
         );
       // case SearchPage.ROUTE_NAME:
       //   return CupertinoPageRoute(builder: (_) => SearchPage());
-      // case WatchlistMoviesPage.ROUTE_NAME:
-      //   return MaterialPageRoute(builder: (_) => WatchlistMoviesPage());
+      case WatchListMoviesPage.routeName:
+        return MaterialPageRoute(builder: (_) => const WatchListMoviesPage());
       case AboutPage.routeName:
         return MaterialPageRoute(builder: (_) => const AboutPage());
       default:
