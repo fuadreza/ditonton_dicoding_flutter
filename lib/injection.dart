@@ -2,11 +2,15 @@ import 'package:ditonton_dicoding_flutter/common/services/base_api_client.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/db/database_helper.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/movie_local_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/movie_remote_data_source.dart';
+import 'package:ditonton_dicoding_flutter/data/datasources/tvseries_remote_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/repositories/movie_repository_impl.dart';
+import 'package:ditonton_dicoding_flutter/data/repositories/tvseries_repository_impl.dart';
 import 'package:ditonton_dicoding_flutter/domain/repositories/movie_repository.dart';
+import 'package:ditonton_dicoding_flutter/domain/repositories/tvseries_repository.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_movie_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_movie_recommendations.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_now_playing_movies.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/get_now_playing_tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_popular_movies.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_top_rated_movies.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_movies.dart';
@@ -17,6 +21,7 @@ import 'package:ditonton_dicoding_flutter/domain/usecases/search_movies.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/now_playing/now_playing_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/popular/popular_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/top_rated/top_rated_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/blocs/now_playing/now_playing_tvseries_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/detail/movie_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/recommendation/movie_recommendation_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';
@@ -66,10 +71,16 @@ void init() {
       searchMovies: locator(),
     ),
   );
+  locator.registerFactory(
+    () => NowPlayingTvSeriesBloc(
+      getNowPlayingTvSeries: locator(),
+    ),
+  );
   //#endregion BLOC
 
   //#region USE CASES
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
+  locator.registerLazySingleton(() => GetNowPlayingTvSeries(locator()));
   locator.registerLazySingleton(() => GetPopularMovies(locator()));
   locator.registerLazySingleton(() => GetTopRatedMovies(locator()));
   locator.registerLazySingleton(() => GetMovieDetail(locator()));
@@ -88,11 +99,21 @@ void init() {
       localDataSource: locator(),
     ),
   );
+  locator.registerLazySingleton<TvSeriesRepository>(
+    () => TvSeriesRepositoryImpl(
+      remoteDataSource: locator(),
+    ),
+  );
   //#endregion REPOSITORIES
 
   //#region DATA SOURCES
   locator.registerLazySingleton<MovieRemoteDataSource>(
     () => MovieRemoteDataSourceImpl(
+      client: locator(),
+    ),
+  );
+  locator.registerLazySingleton<TvSeriesRemoteDataSource>(
+    () => TvSeriesRemoteDataSourceImpl(
       client: locator(),
     ),
   );

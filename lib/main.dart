@@ -1,7 +1,7 @@
 import 'package:ditonton_dicoding_flutter/common/constants.dart';
 import 'package:ditonton_dicoding_flutter/common/utils.dart';
 import 'package:ditonton_dicoding_flutter/injection.dart' as di;
-import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/home_movie_page.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home/home_page.dart';
 import 'package:ditonton_dicoding_flutter/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: kRichBlack,
         textTheme: kTextTheme,
       ),
-      home: const HomeMoviePage(),
+      home: const HomePage(),
       navigatorObservers: [routeObserver],
       onGenerateRoute: AppNavigator.onGenerateRoute,
     );
