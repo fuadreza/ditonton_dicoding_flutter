@@ -1,6 +1,6 @@
 import 'package:ditonton_dicoding_flutter/common/constants.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/search/blocs/search_movie_bloc.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/search/widgets/lists/search_movies_list.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/widgets/lists/search_movies_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

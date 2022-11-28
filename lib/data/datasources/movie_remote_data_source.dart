@@ -62,7 +62,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   @override
   Future<List<MovieModel>> searchMovies(String query) async {
     final params = {'query': query};
-    final response = await client.get(url: '/3/search/movie', params: params);
+    final response = await client.get(url: '/3/search_movie/movie', params: params);
 
     return MovieResponse.fromJson(json.decode(response)).movieList;
   }

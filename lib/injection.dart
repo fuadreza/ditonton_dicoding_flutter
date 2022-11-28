@@ -19,7 +19,7 @@ import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/popular/
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/top_rated/top_rated_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/detail/movie_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/recommendation/movie_recommendation_bloc.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/search/blocs/search_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/blocs/watchlist_movies_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;

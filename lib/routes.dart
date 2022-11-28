@@ -1,7 +1,7 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/about/about_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/home_movie_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/movie_detail_page.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/search/search_page.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/search_movie_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

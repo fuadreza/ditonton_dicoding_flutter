@@ -1,5 +1,5 @@
 import 'package:ditonton_dicoding_flutter/domain/usecases/search_movies.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/search/blocs/search_movie_state.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchMovieBloc extends Cubit<SearchMovieState> {

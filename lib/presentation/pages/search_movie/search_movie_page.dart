@@ -1,6 +1,6 @@
 import 'package:ditonton_dicoding_flutter/injection.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/search/blocs/search_movie_bloc.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/search/search_screen.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/search_movie_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
