@@ -1,19 +1,19 @@
 import 'package:ditonton_dicoding_flutter/common/enums/list_direction.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/widgets/lists/popular_movies_list.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/widgets/lists/top_rated_tvseries_list.dart';
 import 'package:flutter/material.dart';
 
-class PopularMoviesScreen extends StatelessWidget {
-  const PopularMoviesScreen({Key? key}) : super(key: key);
+class TopRatedTvSeriesScreen extends StatelessWidget {
+  const TopRatedTvSeriesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Popular Movies'),
+        title: const Text('Top Rated Tv Series'),
       ),
       body: const Padding(
         padding: EdgeInsets.all(8.0),
-        child: PopularMovieList(
+        child: TopRatedTvSeriesList(
           listDirection: ListDirection.vertical,
         ),
       ),
