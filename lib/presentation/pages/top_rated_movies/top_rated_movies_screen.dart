@@ -1,5 +1,5 @@
 import 'package:ditonton_dicoding_flutter/common/enums/list_direction.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home/widgets/lists/top_rated_movies_list.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/widgets/lists/top_rated_movies_list.dart';
 import 'package:flutter/material.dart';
 
 class TopRatedMoviesScreen extends StatelessWidget {

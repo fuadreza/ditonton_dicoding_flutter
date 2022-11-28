@@ -1,5 +1,5 @@
 import 'package:ditonton_dicoding_flutter/common/enums/list_direction.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home/widgets/lists/popular_movies_list.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/widgets/lists/popular_movies_list.dart';
 import 'package:flutter/material.dart';
 
 class PopularMoviesScreen extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_popular_movies.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/popular/popular_movie_state.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/popular/popular_movie_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PopularMovieBloc extends Cubit<PopularMovieState> {

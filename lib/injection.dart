@@ -14,9 +14,9 @@ import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_status.d
 import 'package:ditonton_dicoding_flutter/domain/usecases/remove_watchlist.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/save_watchlist.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/search_movies.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/now_playing/now_playing_movie_bloc.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/popular/popular_movie_bloc.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/top_rated/top_rated_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/now_playing/now_playing_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/popular/popular_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/top_rated/top_rated_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/detail/movie_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/recommendation/movie_recommendation_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';

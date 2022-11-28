@@ -1,5 +1,5 @@
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_now_playing_movies.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home/blocs/now_playing/now_playing_movie_state.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/now_playing/now_playing_movie_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NowPlayingMovieBloc extends Cubit<NowPlayingMovieState> {
