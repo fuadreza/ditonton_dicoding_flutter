@@ -7,9 +7,9 @@ import 'package:ditonton_dicoding_flutter/data/models/tvseries_response.dart';
 abstract class TvSeriesRemoteDataSource {
   Future<List<TvSeriesModel>> getNowPlayingTvSeries();
 
-  Future<String> getPopularTvSeries();
+  Future<List<TvSeriesModel>> getPopularTvSeries();
 
-  Future<String> getTopRatedTvSeries();
+  Future<List<TvSeriesModel>> getTopRatedTvSeries();
 
   Future<String> getTvSeriesDetail(int id);
 
@@ -47,19 +47,17 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
   }
 
   @override
-  Future<String> getPopularTvSeries() async {
-    final response = await client.get(url: '/3/movie/popular');
+  Future<List<TvSeriesModel>> getPopularTvSeries() async {
+    final response = await client.get(url: '/3/tv/popular');
 
-    return response;
-    // return MovieResponse.fromJson(json.decode(response)).movieList;
+    return TvSeriesResponse.fromJson(json.decode(response)).tvSeriesList;
   }
 
   @override
-  Future<String> getTopRatedTvSeries() async {
-    final response = await client.get(url: '/3/movie/top_rated');
+  Future<List<TvSeriesModel>> getTopRatedTvSeries() async {
+    final response = await client.get(url: '/3/tv/top_rated');
 
-    return response;
-    // return MovieResponse.fromJson(json.decode(response)).movieList;
+    return TvSeriesResponse.fromJson(json.decode(response)).tvSeriesList;
   }
 
   @override

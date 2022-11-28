@@ -1,5 +1,5 @@
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_now_playing_tvseries.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/blocs/now_playing/now_playing_movie_state.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/blocs/now_playing/now_playing_tvseries_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NowPlayingTvSeriesBloc extends Cubit<NowPlayingTvSeriesState> {

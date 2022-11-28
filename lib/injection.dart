@@ -12,7 +12,9 @@ import 'package:ditonton_dicoding_flutter/domain/usecases/get_movie_recommendati
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_now_playing_movies.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_now_playing_tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_popular_movies.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/get_popular_tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_top_rated_movies.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/get_top_rated_tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_movies.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_status.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/remove_watchlist.dart';
@@ -22,6 +24,8 @@ import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/no
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/popular/popular_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/top_rated/top_rated_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/blocs/now_playing/now_playing_tvseries_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/blocs/popular/popular_tvseries_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/blocs/top_rated/top_rated_tvseries_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/detail/movie_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/recommendation/movie_recommendation_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';
@@ -76,13 +80,25 @@ void init() {
       getNowPlayingTvSeries: locator(),
     ),
   );
+  locator.registerFactory(
+    () => PopularTvSeriesBloc(
+      getPopularTvSeries: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => TopRatedTvSeriesBloc(
+      getTopRatedTvSeries: locator(),
+    ),
+  );
   //#endregion BLOC
 
   //#region USE CASES
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
   locator.registerLazySingleton(() => GetNowPlayingTvSeries(locator()));
   locator.registerLazySingleton(() => GetPopularMovies(locator()));
+  locator.registerLazySingleton(() => GetPopularTvSeries(locator()));
   locator.registerLazySingleton(() => GetTopRatedMovies(locator()));
+  locator.registerLazySingleton(() => GetTopRatedTvSeries(locator()));
   locator.registerLazySingleton(() => GetMovieDetail(locator()));
   locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
   locator.registerLazySingleton(() => SearchMovies(locator()));
