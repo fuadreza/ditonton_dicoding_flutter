@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton_dicoding_flutter/common/constants.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/tvseries_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class TvSeriesList extends StatelessWidget {
@@ -15,21 +16,20 @@ class TvSeriesList extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          final movie = tvSeries[index];
           return Container(
             padding: const EdgeInsets.all(8),
             child: InkWell(
               onTap: () {
-                // Navigator.pushNamed(
-                //   context,
-                //   MovieDetailPage.routeName,
-                //   arguments: movie.id,
-                // );
+                Navigator.pushNamed(
+                  context,
+                  TvSeriesDetailPage.routeName,
+                  arguments: tvSeries[index].id,
+                );
               },
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(16)),
                 child: CachedNetworkImage(
-                  imageUrl: '$baseImageUrl${movie.posterPath}',
+                  imageUrl: '$baseImageUrl${tvSeries[index].posterPath}',
                   placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),

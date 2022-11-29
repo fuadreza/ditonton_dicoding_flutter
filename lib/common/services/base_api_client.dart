@@ -30,7 +30,7 @@ class BaseApiClient {
       );
 
       if (!kReleaseMode) {
-        log('RESPONSE GET > ${response.body} | $uri');
+        log('RESPONSE GET > $uri | ${response.body}');
       }
 
       if (response.statusCode == 200) {

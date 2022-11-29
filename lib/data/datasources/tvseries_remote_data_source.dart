@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:ditonton_dicoding_flutter/common/services/base_api_client.dart';
+import 'package:ditonton_dicoding_flutter/data/models/tvseries_detail_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/tvseries_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/tvseries_response.dart';
 
@@ -11,7 +12,7 @@ abstract class TvSeriesRemoteDataSource {
 
   Future<List<TvSeriesModel>> getTopRatedTvSeries();
 
-  Future<String> getTvSeriesDetail(int id);
+  Future<TvSeriesDetailModel> getTvSeriesDetail(int id);
 
   Future<String> getMovieRecommendations(int id);
 
@@ -31,11 +32,10 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
   }
 
   @override
-  Future<String> getTvSeriesDetail(int id) async {
-    final response = await client.get(url: '/3/movie/$id');
+  Future<TvSeriesDetailModel> getTvSeriesDetail(int id) async {
+    final response = await client.get(url: '/3/tv/$id');
 
-    return response;
-    // return MovieDetailResponse.fromJson(json.decode(response));
+    return TvSeriesDetailModel.fromJson(json.decode(response));
   }
 
   @override

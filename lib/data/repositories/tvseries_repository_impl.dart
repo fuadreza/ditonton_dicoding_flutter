@@ -5,6 +5,7 @@ import 'package:ditonton_dicoding_flutter/data/datasources/tvseries_remote_data_
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries.dart';
 import 'package:ditonton_dicoding_flutter/common/exception.dart';
 import 'package:ditonton_dicoding_flutter/common/failure.dart';
+import 'package:ditonton_dicoding_flutter/domain/entities/tvseries_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/repositories/tvseries_repository.dart';
 
 class TvSeriesRepositoryImpl implements TvSeriesRepository {
@@ -43,6 +44,18 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
     try {
       final result = await remoteDataSource.getTopRatedTvSeries();
       return Right(result.map((model) => model.toEntity()).toList());
+    } on ServerException {
+      return const Left(ServerFailure(''));
+    } on SocketException {
+      return const Left(ConnectionFailure('Failed to connect to the network'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, TvSeriesDetail>> getTvSeriesDetail(int id) async {
+    try {
+      final result = await remoteDataSource.getTvSeriesDetail(id);
+      return Right(result.toEntity());
     } on ServerException {
       return const Left(ServerFailure(''));
     } on SocketException {

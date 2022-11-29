@@ -15,6 +15,7 @@ import 'package:ditonton_dicoding_flutter/domain/usecases/get_popular_movies.dar
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_popular_tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_top_rated_movies.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_top_rated_tvseries.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/get_tvseries_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_movies.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_status.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/remove_watchlist.dart';
@@ -29,6 +30,7 @@ import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/blocs
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/detail/movie_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/recommendation/movie_recommendation_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/blocs/detail/tvseries_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/blocs/watchlist_movies_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
@@ -90,6 +92,11 @@ void init() {
       getTopRatedTvSeries: locator(),
     ),
   );
+  locator.registerFactory(
+    () => TvSeriesDetailBloc(
+      getTvSeriesDetail: locator(),
+    ),
+  );
   //#endregion BLOC
 
   //#region USE CASES
@@ -100,6 +107,7 @@ void init() {
   locator.registerLazySingleton(() => GetTopRatedMovies(locator()));
   locator.registerLazySingleton(() => GetTopRatedTvSeries(locator()));
   locator.registerLazySingleton(() => GetMovieDetail(locator()));
+  locator.registerLazySingleton(() => GetTvSeriesDetail(locator()));
   locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
   locator.registerLazySingleton(() => SearchMovies(locator()));
   locator.registerLazySingleton(() => GetWatchListStatus(locator()));

@@ -4,6 +4,7 @@ import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/movie_
 import 'package:ditonton_dicoding_flutter/presentation/pages/popular_tvseries/popular_tvseries_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/search_movie_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/top_rated_tvseries/top_rated_tvseries_page.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/tvseries_detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,12 @@ class AppNavigator {
         final id = settings.arguments as int;
         return MaterialPageRoute(
           builder: (_) => MovieDetailPage(id: id),
+          settings: settings,
+        );
+      case TvSeriesDetailPage.routeName:
+        final id = settings.arguments as int;
+        return MaterialPageRoute(
+          builder: (_) => TvSeriesDetailPage(id: id),
           settings: settings,
         );
       case SearchMoviePage.routeName:
