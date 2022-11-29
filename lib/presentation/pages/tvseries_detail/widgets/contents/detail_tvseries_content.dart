@@ -2,7 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton_dicoding_flutter/common/constants.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/genre.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries_detail.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/blocs/detail/tvseries_detail_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class DetailTvSeriesContent extends StatelessWidget {
@@ -53,11 +55,11 @@ class DetailTvSeriesContent extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () async {
-                                // if (!isAddedWatchlist) {
-                                //   context.read<TvSeriesDetailBloc>().addWatchList(tvSeries);
-                                // } else {
-                                //   context.read<TvSeriesDetailBloc>().removeFromWatchList(tvSeries);
-                                // }
+                                if (!isAddedWatchlist) {
+                                  context.read<TvSeriesDetailBloc>().addWatchList(tvSeries);
+                                } else {
+                                  context.read<TvSeriesDetailBloc>().removeFromWatchList(tvSeries);
+                                }
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,

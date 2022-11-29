@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:ditonton_dicoding_flutter/data/datasources/tvseries_local_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/tvseries_remote_data_source.dart';
+import 'package:ditonton_dicoding_flutter/data/models/tvseries_table.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries.dart';
 import 'package:ditonton_dicoding_flutter/common/exception.dart';
 import 'package:ditonton_dicoding_flutter/common/failure.dart';
@@ -10,9 +12,11 @@ import 'package:ditonton_dicoding_flutter/domain/repositories/tvseries_repositor
 
 class TvSeriesRepositoryImpl implements TvSeriesRepository {
   final TvSeriesRemoteDataSource remoteDataSource;
+  final TvSeriesLocalDataSource localDataSource;
 
   TvSeriesRepositoryImpl({
     required this.remoteDataSource,
+    required this.localDataSource,
   });
 
   @override
@@ -61,5 +65,39 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
     }
+  }
+
+  @override
+  Future<Either<Failure, String>> saveWatchlist(TvSeriesDetail movie) async {
+    try {
+      final result = await localDataSource.insertWatchlist(TvSeriesTable.fromEntity(movie));
+      return Right(result);
+    } on DatabaseException catch (e) {
+      return Left(DatabaseFailure(e.message));
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> removeWatchlist(TvSeriesDetail movie) async {
+    try {
+      final result = await localDataSource.removeWatchlist(TvSeriesTable.fromEntity(movie));
+      return Right(result);
+    } on DatabaseException catch (e) {
+      return Left(DatabaseFailure(e.message));
+    }
+  }
+
+  @override
+  Future<bool> isAddedToWatchlist(int id) async {
+    final result = await localDataSource.getTvSeriesById(id);
+    return result != null;
+  }
+
+  @override
+  Future<Either<Failure, List<TvSeries>>> getWatchlistTvSeries() async {
+    final result = await localDataSource.getWatchlistTvSeries();
+    return Right(result.map((data) => data.toEntity()).toList());
   }
 }

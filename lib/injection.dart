@@ -2,6 +2,7 @@ import 'package:ditonton_dicoding_flutter/common/services/base_api_client.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/db/database_helper.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/movie_local_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/movie_remote_data_source.dart';
+import 'package:ditonton_dicoding_flutter/data/datasources/tvseries_local_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/tvseries_remote_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/repositories/movie_repository_impl.dart';
 import 'package:ditonton_dicoding_flutter/data/repositories/tvseries_repository_impl.dart';
@@ -17,9 +18,13 @@ import 'package:ditonton_dicoding_flutter/domain/usecases/get_top_rated_movies.d
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_top_rated_tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_tvseries_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_movies.dart';
-import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_status.dart';
-import 'package:ditonton_dicoding_flutter/domain/usecases/remove_watchlist.dart';
-import 'package:ditonton_dicoding_flutter/domain/usecases/save_watchlist.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_status_movie.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_status_tvseries.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/get_watchlist_tvseries.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/remove_watchlist_movie.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/remove_watchlist_tvseries.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/save_watchlist_movie.dart';
+import 'package:ditonton_dicoding_flutter/domain/usecases/save_watchlist_tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/usecases/search_movies.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/now_playing/now_playing_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/blocs/popular/popular_movie_bloc.dart';
@@ -95,6 +100,9 @@ void init() {
   locator.registerFactory(
     () => TvSeriesDetailBloc(
       getTvSeriesDetail: locator(),
+      getWatchListStatus: locator(),
+      saveWatchlist: locator(),
+      removeWatchlist: locator(),
     ),
   );
   //#endregion BLOC
@@ -110,10 +118,14 @@ void init() {
   locator.registerLazySingleton(() => GetTvSeriesDetail(locator()));
   locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
   locator.registerLazySingleton(() => SearchMovies(locator()));
-  locator.registerLazySingleton(() => GetWatchListStatus(locator()));
-  locator.registerLazySingleton(() => SaveWatchlist(locator()));
-  locator.registerLazySingleton(() => RemoveWatchlist(locator()));
+  locator.registerLazySingleton(() => GetWatchListStatusMovie(locator()));
+  locator.registerLazySingleton(() => GetWatchListStatusTvSeries(locator()));
+  locator.registerLazySingleton(() => SaveWatchlistMovie(locator()));
+  locator.registerLazySingleton(() => SaveWatchlistTvSeries(locator()));
+  locator.registerLazySingleton(() => RemoveWatchlistMovie(locator()));
+  locator.registerLazySingleton(() => RemoveWatchlistTvSeries(locator()));
   locator.registerLazySingleton(() => GetWatchlistMovies(locator()));
+  locator.registerLazySingleton(() => GetWatchlistTvSeries(locator()));
   //#endregion USE CASES
 
   //#region REPOSITORIES
@@ -126,6 +138,7 @@ void init() {
   locator.registerLazySingleton<TvSeriesRepository>(
     () => TvSeriesRepositoryImpl(
       remoteDataSource: locator(),
+      localDataSource: locator(),
     ),
   );
   //#endregion REPOSITORIES
@@ -143,6 +156,11 @@ void init() {
   );
   locator.registerLazySingleton<MovieLocalDataSource>(
     () => MovieLocalDataSourceImpl(
+      databaseHelper: locator(),
+    ),
+  );
+  locator.registerLazySingleton<TvSeriesLocalDataSource>(
+    () => TvSeriesLocalDataSourceImpl(
       databaseHelper: locator(),
     ),
   );
