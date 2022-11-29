@@ -8,7 +8,7 @@ class WatchListMoviesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Watchlist'),
+        title: const Text('Watchlist Movies'),
       ),
       body: const Padding(
         padding: EdgeInsets.all(8.0),

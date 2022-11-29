@@ -18,8 +18,7 @@ class WatchListMoviesList extends StatelessWidget {
         } else if (state is WatchListMoviesStateLoaded) {
           return ListView.builder(
             itemBuilder: (context, index) {
-              final movie = state.listMovie[index];
-              return MovieCard(movie);
+              return MovieCard(state.listMovie[index]);
             },
             itemCount: state.listMovie.length,
           );

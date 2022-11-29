@@ -37,6 +37,7 @@ import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/blocs/
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/blocs/detail/tvseries_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/blocs/watchlist_movies_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_tvseries/blocs/watchlist_tvseries_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 
@@ -103,6 +104,11 @@ void init() {
       getWatchListStatus: locator(),
       saveWatchlist: locator(),
       removeWatchlist: locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => WatchListTvSeriesBloc(
+      getWatchlistTvSeries: locator(),
     ),
   );
   //#endregion BLOC
