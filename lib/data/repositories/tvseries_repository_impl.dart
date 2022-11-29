@@ -80,6 +80,18 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
   }
 
   @override
+  Future<Either<Failure, List<TvSeries>>> getTvSeriesRecommendations(int id) async {
+    try {
+      final result = await remoteDataSource.getTvSeriesRecommendations(id);
+      return Right(result.map((model) => model.toEntity()).toList());
+    } on ServerException {
+      return const Left(ServerFailure(''));
+    } on SocketException {
+      return const Left(ConnectionFailure('Failed to connect to the network'));
+    }
+  }
+
+  @override
   Future<Either<Failure, String>> saveWatchlist(TvSeriesDetail movie) async {
     try {
       final result = await localDataSource.insertWatchlist(TvSeriesTable.fromEntity(movie));

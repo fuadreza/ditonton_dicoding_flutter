@@ -1,5 +1,6 @@
 import 'package:ditonton_dicoding_flutter/injection.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/blocs/detail/tvseries_detail_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/blocs/recommendation/tvseries_recommendation_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/tvseries_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +18,9 @@ class TvSeriesDetailPage extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => locator<TvSeriesDetailBloc>()..getTvSeries(id),
+        ),
+        BlocProvider(
+          create: (_) => locator<TvSeriesRecommendationBloc>()..getRecommendations(id),
         ),
       ],
       child: const TvSeriesDetailScreen(),

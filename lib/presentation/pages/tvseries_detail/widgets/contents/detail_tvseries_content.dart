@@ -3,6 +3,7 @@ import 'package:ditonton_dicoding_flutter/common/constants.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/genre.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries_detail.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/blocs/detail/tvseries_detail_bloc.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/widgets/lists/recommendation_tvseries_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -99,7 +100,7 @@ class DetailTvSeriesContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            // const RecommendationTvSeriesList(),
+                            const RecommendationTvSeriesList(),
                           ],
                         ),
                       ),
