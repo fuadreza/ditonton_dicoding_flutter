@@ -1,8 +1,8 @@
-
 import 'package:ditonton_dicoding_flutter/presentation/pages/about/about_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/home_movie_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/home_tvseries_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/search_movie_page.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/search_tvseries/search_tvseries_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/watchlist_movies_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_tvseries/watchlist_tvseries_page.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
@@ -87,7 +86,11 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SearchMoviePage.routeName);
+              if (_selectedIndex == 0) {
+                Navigator.pushNamed(context, SearchMoviePage.routeName);
+              } else if (_selectedIndex == 1) {
+                Navigator.pushNamed(context, SearchTvSeriesPage.routeName);
+              }
             },
             icon: const Icon(Icons.search),
           )

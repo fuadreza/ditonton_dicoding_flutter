@@ -16,7 +16,7 @@ abstract class TvSeriesRemoteDataSource {
 
   Future<String> getMovieRecommendations(int id);
 
-  Future<String> searchTvSeries(String query);
+  Future<List<TvSeriesModel>> searchTvSeries(String query);
 }
 
 class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
@@ -61,11 +61,10 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
   }
 
   @override
-  Future<String> searchTvSeries(String query) async {
+  Future<List<TvSeriesModel>> searchTvSeries(String query) async {
     final params = {'query': query};
-    final response = await client.get(url: '/3/search_movie/movie', params: params);
+    final response = await client.get(url: '/3/search/tv', params: params);
 
-    return response;
-    // return MovieResponse.fromJson(json.decode(response)).movieList;
+    return TvSeriesResponse.fromJson(json.decode(response)).tvSeriesList;
   }
 }
