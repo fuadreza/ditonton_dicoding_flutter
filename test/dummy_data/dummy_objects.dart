@@ -84,7 +84,7 @@ const testTvSeriesDetail = TvSeriesDetail(
   backdropPath: 'backdropPath',
   genres: [Genre(id: 1, name: 'Action')],
   id: 1,
-  originalName: 'originalTitle',
+  originalName: 'originalName',
   overview: 'overview',
   posterPath: 'posterPath',
   firstAirDate: 'releaseDate',
@@ -95,7 +95,7 @@ const testTvSeriesDetail = TvSeriesDetail(
 
 final testWatchlistTvSeries = TvSeries.watchlist(
   id: 1,
-  originalName: 'title',
+  originalName: 'originalName',
   posterPath: 'posterPath',
   overview: 'overview',
 );
