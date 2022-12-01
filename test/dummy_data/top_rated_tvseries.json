@@ -1,0 +1,26 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/path.jpg",
+      "first_air_date": "2021-09-03",
+      "genre_ids": [
+        10764
+      ],
+      "id": 130392,
+      "name": "The D'Amelio Show",
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "The DAmelio Show",
+      "overview": "From relative obscurity and a seemingly normal life",
+      "popularity": 26.594,
+      "poster_path": "/path.jpg",
+      "vote_average": 9,
+      "vote_count": 3144
+    }
+  ],
+  "total_pages": 134,
+  "total_results": 2667
+}

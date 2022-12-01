@@ -1,0 +1,28 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/path.jpg",
+      "first_air_date": "2011-12-04",
+      "genre_ids": [
+        10765,
+        18,
+        9648
+      ],
+      "id": 42009,
+      "name": "Black Mirror",
+      "origin_country": [
+        "GB"
+      ],
+      "original_language": "en",
+      "original_name": "Black Mirror",
+      "overview": "A contemporary British re-working of The Twilight Zone with stories",
+      "popularity": 93.535,
+      "poster_path": "/path.jpg",
+      "vote_average": 8.3,
+      "vote_count": 3632
+    }
+  ],
+  "total_pages": 21,
+  "total_results": 408
+}
