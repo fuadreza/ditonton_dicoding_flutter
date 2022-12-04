@@ -19,8 +19,8 @@ class TvSeriesDetailBloc extends Cubit<TvSeriesDetailState> {
   final SaveWatchlistTvSeries saveWatchlist;
   final RemoveWatchlistTvSeries removeWatchlist;
 
-  late TvSeriesDetail _tvSeriesDetail;
-  bool _isAddedToWatchList = false;
+  late TvSeriesDetail tvSeriesDetail;
+  bool isAddedToWatchList = false;
 
   void getTvSeries(int id) async {
     final result = await getTvSeriesDetail.execute(id);
@@ -30,9 +30,9 @@ class TvSeriesDetailBloc extends Cubit<TvSeriesDetailState> {
         emit(TvSeriesDetailStateFailed(message: failure.message));
       },
       (tvSeriesData) {
-        _tvSeriesDetail = tvSeriesData;
-        _isAddedToWatchList = resultWatchListStatus;
-        emit(TvSeriesDetailStateLoaded(tvSeries: tvSeriesData, isAddedToWatchList: _isAddedToWatchList));
+        tvSeriesDetail = tvSeriesData;
+        isAddedToWatchList = resultWatchListStatus;
+        emit(TvSeriesDetailStateLoaded(tvSeries: tvSeriesData, isAddedToWatchList: isAddedToWatchList));
       },
     );
   }
@@ -43,16 +43,16 @@ class TvSeriesDetailBloc extends Cubit<TvSeriesDetailState> {
     await result.fold(
       (failure) async {
         emit(TvSeriesDetailStateLoaded(
-          tvSeries: _tvSeriesDetail,
-          isAddedToWatchList: _isAddedToWatchList,
+          tvSeries: tvSeriesDetail,
+          isAddedToWatchList: isAddedToWatchList,
           message: failure.message,
         ));
       },
       (successMessage) async {
-        _isAddedToWatchList = !_isAddedToWatchList;
+        isAddedToWatchList = !isAddedToWatchList;
         emit(TvSeriesDetailStateLoaded(
-          tvSeries: _tvSeriesDetail,
-          isAddedToWatchList: _isAddedToWatchList,
+          tvSeries: tvSeriesDetail,
+          isAddedToWatchList: isAddedToWatchList,
           message: successMessage,
         ));
       },
@@ -65,16 +65,16 @@ class TvSeriesDetailBloc extends Cubit<TvSeriesDetailState> {
     await result.fold(
       (failure) async {
         emit(TvSeriesDetailStateLoaded(
-          tvSeries: _tvSeriesDetail,
-          isAddedToWatchList: _isAddedToWatchList,
+          tvSeries: tvSeriesDetail,
+          isAddedToWatchList: isAddedToWatchList,
           message: failure.message,
         ));
       },
       (successMessage) async {
-        _isAddedToWatchList = !_isAddedToWatchList;
+        isAddedToWatchList = !isAddedToWatchList;
         emit(TvSeriesDetailStateLoaded(
-          tvSeries: _tvSeriesDetail,
-          isAddedToWatchList: _isAddedToWatchList,
+          tvSeries: tvSeriesDetail,
+          isAddedToWatchList: isAddedToWatchList,
           message: successMessage,
         ));
       },

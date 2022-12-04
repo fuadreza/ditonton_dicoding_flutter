@@ -19,8 +19,8 @@ class MovieDetailBloc extends Cubit<MovieDetailState> {
   final SaveWatchlistMovie saveWatchlist;
   final RemoveWatchlistMovie removeWatchlist;
 
-  late MovieDetail _movieDetail;
-  bool _isAddedToWatchList = false;
+  late MovieDetail movieDetail;
+  bool isAddedToWatchList = false;
 
   void getMovie(int id) async {
     final result = await getMovieDetail.execute(id);
@@ -30,8 +30,8 @@ class MovieDetailBloc extends Cubit<MovieDetailState> {
         emit(MovieDetailStateFailed(message: failure.message));
       },
       (movieData) {
-        _movieDetail = movieData;
-        _isAddedToWatchList = resultWatchListStatus;
+        movieDetail = movieData;
+        isAddedToWatchList = resultWatchListStatus;
         emit(MovieDetailStateLoaded(movie: movieData, isAddedToWatchList: resultWatchListStatus));
       },
     );
@@ -43,16 +43,16 @@ class MovieDetailBloc extends Cubit<MovieDetailState> {
     await result.fold(
       (failure) async {
         emit(MovieDetailStateLoaded(
-          movie: _movieDetail,
-          isAddedToWatchList: _isAddedToWatchList,
+          movie: movieDetail,
+          isAddedToWatchList: isAddedToWatchList,
           message: failure.message,
         ));
       },
       (successMessage) async {
-        _isAddedToWatchList = !_isAddedToWatchList;
+        isAddedToWatchList = !isAddedToWatchList;
         emit(MovieDetailStateLoaded(
-          movie: _movieDetail,
-          isAddedToWatchList: _isAddedToWatchList,
+          movie: movieDetail,
+          isAddedToWatchList: isAddedToWatchList,
           message: successMessage,
         ));
       },
@@ -65,16 +65,16 @@ class MovieDetailBloc extends Cubit<MovieDetailState> {
     await result.fold(
       (failure) async {
         emit(MovieDetailStateLoaded(
-          movie: _movieDetail,
-          isAddedToWatchList: _isAddedToWatchList,
+          movie: movieDetail,
+          isAddedToWatchList: isAddedToWatchList,
           message: failure.message,
         ));
       },
       (successMessage) async {
-        _isAddedToWatchList = !_isAddedToWatchList;
+        isAddedToWatchList = !isAddedToWatchList;
         emit(MovieDetailStateLoaded(
-          movie: _movieDetail,
-          isAddedToWatchList: _isAddedToWatchList,
+          movie: movieDetail,
+          isAddedToWatchList: isAddedToWatchList,
           message: successMessage,
         ));
       },
