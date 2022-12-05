@@ -1,6 +1,6 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/blocs/watchlist_movies_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/blocs/watchlist_movies_state.dart';
-import 'package:ditonton_dicoding_flutter/presentation/widgets/movie_card_list.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/widgets/cards/movie_watchlist_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +18,7 @@ class WatchListMoviesList extends StatelessWidget {
         } else if (state is WatchListMoviesStateLoaded) {
           return ListView.builder(
             itemBuilder: (context, index) {
-              return MovieCard(state.listMovie[index]);
+              return MovieWatchlistCard(state.listMovie[index]);
             },
             itemCount: state.listMovie.length,
           );
