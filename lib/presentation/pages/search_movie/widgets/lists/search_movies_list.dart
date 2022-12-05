@@ -22,16 +22,24 @@ class SearchMoviesList extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else if (state is SearchMovieStateLoaded) {
-          return Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(8),
-              itemBuilder: (context, index) {
-                final movie = state.listMovie[index];
-                return MovieCard(movie);
-              },
-              itemCount: state.listMovie.length,
-            ),
-          );
+          if (state.listMovie.isNotEmpty) {
+            return Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.all(8),
+                itemBuilder: (context, index) {
+                  final movie = state.listMovie[index];
+                  return MovieCard(movie);
+                },
+                itemCount: state.listMovie.length,
+              ),
+            );
+          } else {
+            return const Expanded(
+              child: Center(
+                child: Text('Tidak ditemukan'),
+              ),
+            );
+          }
         } else if (state is SearchMovieStateFailed) {
           return Expanded(
             child: Center(
