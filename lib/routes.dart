@@ -1,6 +1,8 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/about/about_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/home_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/movie_detail/movie_detail_page.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/now_playing_movie/now_playing_movies_page.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/now_playing_tvseries/now_playing_tvseries_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/popular_tvseries/popular_tvseries_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/search_movie_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_tvseries/search_tvseries_page.dart';
@@ -21,6 +23,10 @@ class AppNavigator {
     switch (settings.name) {
       case '/home':
         return MaterialPageRoute(builder: (_) => const HomePage());
+      case NowPlayingMoviesPage.routeName:
+        return CupertinoPageRoute(builder: (_) => const NowPlayingMoviesPage());
+      case NowPlayingTvSeriesPage.routeName:
+        return CupertinoPageRoute(builder: (_) => const NowPlayingTvSeriesPage());
       case PopularMoviesPage.routeName:
         return CupertinoPageRoute(builder: (_) => const PopularMoviesPage());
       case PopularTvSeriesPage.routeName:
