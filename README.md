@@ -1,16 +1,34 @@
-# ditonton_dicoding_flutter
+# Dicoding Ditonton Flutter
 
-A new Flutter project.
+Project Excercise for learning Dicoding MFDE
+
+## Status
+
+[![Codemagic build status](https://api.codemagic.io/apps/63903aa4da0cdbd16a9d2638/63903aa4da0cdbd16a9d2637/status_badge.svg)](https://codemagic.io/apps/63903aa4da0cdbd16a9d2638/63903aa4da0cdbd16a9d2637/latest_build)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+**Step 1:**
 
-A few resources to get you started if this is your first Flutter project:
+Download or clone this repo by using the link below:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+https://github.com/fuadreza/ditonton_dicoding_flutter.git
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Step 2:**
+
+Go to project root and execute the following command in console to get the required dependencies:
+
+```
+flutter pub get
+```
+
+**Step 3:**
+
+Connect device with debugging on using adb and run project with:
+
+```
+flutter run lib/main.dart
+```
+
