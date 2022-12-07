@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -20,7 +20,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   get_it: ^7.2.0
   google_fonts: ^3.0.1
-  http: ^0.13.3
+  http: ^0.13.5
   path_provider: ^2.0.11
   sqflite: ^2.2.0+3
 
@@ -39,3 +39,4 @@ flutter:
 
   assets:
     - assets/
+    - certificates/

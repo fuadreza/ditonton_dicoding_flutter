@@ -1,3 +1,4 @@
+import 'package:ditonton_dicoding_flutter/common/securities/http_ssl_pinning.dart';
 import 'package:ditonton_dicoding_flutter/common/services/base_api_client.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/db/database_helper.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/movie_local_data_source.dart';
@@ -43,7 +44,6 @@ import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/blo
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/blocs/watchlist_movies_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_tvseries/blocs/watchlist_tvseries_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:http/http.dart' as http;
 
 final locator = GetIt.instance;
 
@@ -201,7 +201,7 @@ void init() {
 
   //#region EXTERNAL
   locator.registerLazySingleton(
-    () => http.Client(),
+    () => HttpSSLPinning.client,
   );
   //#endregion EXTERNAL
 }
