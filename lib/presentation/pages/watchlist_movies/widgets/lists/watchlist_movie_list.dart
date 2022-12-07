@@ -1,6 +1,7 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/blocs/watchlist_movies_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/blocs/watchlist_movies_state.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/widgets/cards/movie_watchlist_card_list.dart';
+import 'package:ditonton_dicoding_flutter/presentation/widgets/empty_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,12 +17,16 @@ class WatchListMoviesList extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else if (state is WatchListMoviesStateLoaded) {
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              return MovieWatchlistCard(state.listMovie[index]);
-            },
-            itemCount: state.listMovie.length,
-          );
+          if (state.listMovie.isNotEmpty) {
+            return ListView.builder(
+              itemBuilder: (context, index) {
+                return MovieWatchlistCard(state.listMovie[index]);
+              },
+              itemCount: state.listMovie.length,
+            );
+          } else {
+            return const EmptyList(label: 'Tidak ada watchlist');
+          }
         } else if (state is WatchListMoviesStateFailed) {
           return Center(
             key: const Key('error_message'),

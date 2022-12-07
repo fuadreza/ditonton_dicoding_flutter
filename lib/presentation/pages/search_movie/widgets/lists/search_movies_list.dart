@@ -1,5 +1,6 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/blocs/search_movie_state.dart';
+import 'package:ditonton_dicoding_flutter/presentation/widgets/empty_list.dart';
 import 'package:ditonton_dicoding_flutter/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,11 +35,7 @@ class SearchMoviesList extends StatelessWidget {
               ),
             );
           } else {
-            return const Expanded(
-              child: Center(
-                child: Text('Tidak ditemukan'),
-              ),
-            );
+            return const EmptyList(label: 'Tidak ditemukan');
           }
         } else if (state is SearchMovieStateFailed) {
           return Expanded(

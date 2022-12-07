@@ -1,5 +1,6 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_tvseries/blocs/search_tvseries_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_tvseries/blocs/search_tvseries_state.dart';
+import 'package:ditonton_dicoding_flutter/presentation/widgets/empty_list.dart';
 import 'package:ditonton_dicoding_flutter/presentation/widgets/tvseries_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,11 +34,7 @@ class SearchTvSeriesList extends StatelessWidget {
               ),
             );
           } else {
-            return const Expanded(
-              child: Center(
-                child: Text('Tidak ditemukan'),
-              ),
-            );
+            return const EmptyList(label: 'Tidak ditemukan');
           }
         } else if (state is SearchTvSeriesStateFailed) {
           return Expanded(
