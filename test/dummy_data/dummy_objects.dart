@@ -1,11 +1,15 @@
+import 'package:ditonton_dicoding_flutter/data/models/episode_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/genre_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/movie_table.dart';
+import 'package:ditonton_dicoding_flutter/data/models/season_detail_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/season_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/tvseries_table.dart';
+import 'package:ditonton_dicoding_flutter/domain/entities/episode.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/genre.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/movie.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/movie_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/season.dart';
+import 'package:ditonton_dicoding_flutter/domain/entities/season_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries_detail.dart';
 
@@ -133,7 +137,56 @@ const testSeason = Season(
   seasonNumber: 1,
 );
 
+const testSeasonDetailModel = SeasonDetailModel(
+  airDate: '',
+  episodeCount: 1,
+  id: 171559,
+  name: 'Season 1',
+  posterPath: '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
+  seasonNumber: 1,
+  episodes: [],
+);
+
+const testSeasonDetail = SeasonDetail(
+  airDate: '',
+  episodeCount: 1,
+  id: 171559,
+  name: 'Season 1',
+  posterPath: '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
+  seasonNumber: 1,
+  episodes: [],
+);
+
 //#endregion SEASON
+
+//#region EPISODE
+
+const testEpisodeModel = EpisodesModel(
+  airDate: '10-10-2020',
+  episodeNumber: 1,
+  id: 1,
+  name: 'Episode',
+  overview: 'overview',
+  runtime: 1,
+  seasonNumber: 1,
+  voteAverage: 1.0,
+  voteCount: 10,
+);
+
+const testEpisode = Episode(
+  airDate: '10-10-2020',
+  episodeNumber: 1,
+  id: 1,
+  name: 'Episode',
+  overview: 'overview',
+  runtime: 1,
+  seasonNumber: 1,
+  voteAverage: 1.0,
+  voteCount: 10,
+);
+
+//#endregion EPISODE
+
 
 //#region GENRE
 
