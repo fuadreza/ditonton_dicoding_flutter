@@ -1,9 +1,11 @@
-
+import 'package:ditonton_dicoding_flutter/data/models/genre_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/movie_table.dart';
+import 'package:ditonton_dicoding_flutter/data/models/season_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/tvseries_table.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/genre.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/movie.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/movie_detail.dart';
+import 'package:ditonton_dicoding_flutter/domain/entities/season.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries_detail.dart';
 
@@ -15,8 +17,7 @@ final testMovie = Movie(
   genreIds: const [14, 28],
   id: 557,
   originalTitle: 'Spider-Man',
-  overview:
-      'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
+  overview: 'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
   popularity: 60.441,
   posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
   releaseDate: '2002-05-01',
@@ -72,8 +73,7 @@ final testTvSeries = TvSeries(
   backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
   id: 557,
   originalName: 'Spider-Man',
-  overview:
-  'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
+  overview: 'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
   posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
 );
 
@@ -91,6 +91,7 @@ const testTvSeriesDetail = TvSeriesDetail(
   voteAverage: 1,
   voteCount: 1,
   name: 'name',
+  seasons: [],
 );
 
 final testWatchlistTvSeries = TvSeries.watchlist(
@@ -115,3 +116,33 @@ final testTvSeriesMap = {
 };
 
 //#endregion TV SERIES
+
+//#region SEASON
+
+const testSeasonModel = SeasonModel(
+  airDate: '2022-10-12',
+  episodeCount: 12,
+  id: 171559,
+  name: 'Season 1',
+  posterPath: '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
+  seasonNumber: 1,
+);
+
+const testSeason = Season(
+  airDate: '2022-10-12',
+  episodeCount: 12,
+  id: 171559,
+  name: 'Season 1',
+  posterPath: '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
+  seasonNumber: 1,
+);
+
+//#endregion SEASON
+
+//#region GENRE
+
+const testGenreModel = GenreModel(id: 1, name: 'Genre A');
+
+const testGenre = Genre(id: 1, name: 'Genre A');
+
+//#endregion GENRE

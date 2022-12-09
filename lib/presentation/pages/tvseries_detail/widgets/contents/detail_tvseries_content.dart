@@ -4,6 +4,7 @@ import 'package:ditonton_dicoding_flutter/domain/entities/genre.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries_detail.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/blocs/detail/tvseries_detail_bloc.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/tvseries_detail/widgets/lists/recommendation_tvseries_list.dart';
+import 'package:ditonton_dicoding_flutter/presentation/widgets/season_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -94,6 +95,21 @@ class DetailTvSeriesContent extends StatelessWidget {
                             ),
                             Text(
                               tvSeries.overview,
+                            ),
+                            const SizedBox(height: 16),
+                            Text(
+                              'Seasons',
+                              style: kHeading6,
+                            ),
+                            SizedBox(
+                              height: 50,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: tvSeries.seasons.length,
+                                itemBuilder: (context, index) {
+                                  return SeasonChip(season: tvSeries.seasons[index], tvId: tvSeries.id);
+                                },
+                              ),
                             ),
                             const SizedBox(height: 16),
                             Text(

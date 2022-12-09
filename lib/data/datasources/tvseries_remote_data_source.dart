@@ -17,6 +17,8 @@ abstract class TvSeriesRemoteDataSource {
   Future<List<TvSeriesModel>> getTvSeriesRecommendations(int id);
 
   Future<List<TvSeriesModel>> searchTvSeries(String query);
+
+  Future<String> getSeasons(int tvId, int seasonNumber);
 }
 
 class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
@@ -65,5 +67,11 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
     final response = await client.get(url: '/3/search/tv', params: params);
 
     return TvSeriesResponse.fromJson(json.decode(response)).tvSeriesList;
+  }
+
+  @override
+  Future<String> getSeasons(int tvId, int seasonNumber) async {
+    final response = await client.get(url: '/3/tv/$tvId/season/$seasonNumber');
+    return '';
   }
 }

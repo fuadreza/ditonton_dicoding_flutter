@@ -1,4 +1,5 @@
 import 'package:ditonton_dicoding_flutter/data/models/genre_model.dart';
+import 'package:ditonton_dicoding_flutter/data/models/season_model.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries_detail.dart';
 import 'package:equatable/equatable.dart';
 
@@ -24,6 +25,7 @@ class TvSeriesDetailModel extends Equatable {
     required this.type,
     required this.voteAverage,
     required this.voteCount,
+    required this.seasons,
   });
 
   final bool adult;
@@ -46,6 +48,7 @@ class TvSeriesDetailModel extends Equatable {
   final String type;
   final double voteAverage;
   final int voteCount;
+  final List<SeasonModel> seasons;
 
   factory TvSeriesDetailModel.fromJson(Map<String, dynamic> json) {
     return TvSeriesDetailModel(
@@ -69,6 +72,7 @@ class TvSeriesDetailModel extends Equatable {
       type: json['type'],
       voteAverage: json['vote_average'].toDouble(),
       voteCount: json['vote_count'],
+      seasons: List<SeasonModel>.from(json["seasons"].map((x) => SeasonModel.fromJson(x))),
     );
   }
 
@@ -94,6 +98,7 @@ class TvSeriesDetailModel extends Equatable {
     data['type'] = type;
     data['vote_average'] = voteAverage;
     data['vote_count'] = voteCount;
+    data['seasons'] = seasons.map((v) => v.toJson()).toList();
     return data;
   }
 
@@ -110,6 +115,7 @@ class TvSeriesDetailModel extends Equatable {
       posterPath: posterPath,
       voteAverage: voteAverage,
       voteCount: voteCount,
+      seasons: seasons.map((season) => season.toEntity()).toList(),
     );
   }
 
@@ -135,5 +141,6 @@ class TvSeriesDetailModel extends Equatable {
         type,
         voteAverage,
         voteCount,
+        seasons,
       ];
 }

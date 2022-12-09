@@ -124,4 +124,16 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
     final result = await localDataSource.getWatchlistTvSeries();
     return Right(result.map((data) => data.toEntity()).toList());
   }
+
+  @override
+  Future<Either<Failure, String>> getSeasons(int tvId, int seasonNumber) async {
+    try {
+      final result = await remoteDataSource.getSeasons(tvId, seasonNumber);
+      return Right(result);
+    } on ServerException {
+      return const Left(ServerFailure(''));
+    } on SocketException {
+      return const Left(ConnectionFailure('Failed to connect to the network'));
+    }
+  }
 }

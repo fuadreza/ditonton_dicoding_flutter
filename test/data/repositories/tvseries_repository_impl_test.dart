@@ -201,6 +201,7 @@ void main() {
       numberOfSeasons: 1,
       originalName: 'originalName',
       type: '',
+      seasons: [],
     );
 
     test(
