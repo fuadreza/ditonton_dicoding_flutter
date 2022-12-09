@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:ditonton_dicoding_flutter/common/services/base_api_client.dart';
+import 'package:ditonton_dicoding_flutter/data/models/season_detail_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/tvseries_detail_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/tvseries_model.dart';
 import 'package:ditonton_dicoding_flutter/data/models/tvseries_response.dart';
@@ -18,7 +19,7 @@ abstract class TvSeriesRemoteDataSource {
 
   Future<List<TvSeriesModel>> searchTvSeries(String query);
 
-  Future<String> getSeasons(int tvId, int seasonNumber);
+  Future<SeasonDetailModel> getSeasons(int tvId, int seasonNumber);
 }
 
 class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
@@ -70,8 +71,8 @@ class TvSeriesRemoteDataSourceImpl implements TvSeriesRemoteDataSource {
   }
 
   @override
-  Future<String> getSeasons(int tvId, int seasonNumber) async {
+  Future<SeasonDetailModel> getSeasons(int tvId, int seasonNumber) async {
     final response = await client.get(url: '/3/tv/$tvId/season/$seasonNumber');
-    return '';
+    return SeasonDetailModel.fromJson(json.decode(response));
   }
 }

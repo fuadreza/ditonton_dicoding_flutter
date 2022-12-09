@@ -120,8 +120,6 @@ final testTvSeriesMap = {
 //#region SEASON
 
 const testSeasonModel = SeasonModel(
-  airDate: '2022-10-12',
-  episodeCount: 12,
   id: 171559,
   name: 'Season 1',
   posterPath: '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
@@ -129,8 +127,6 @@ const testSeasonModel = SeasonModel(
 );
 
 const testSeason = Season(
-  airDate: '2022-10-12',
-  episodeCount: 12,
   id: 171559,
   name: 'Season 1',
   posterPath: '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',

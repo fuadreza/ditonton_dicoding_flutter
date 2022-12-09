@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/tvseries_local_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/datasources/tvseries_remote_data_source.dart';
 import 'package:ditonton_dicoding_flutter/data/models/tvseries_table.dart';
+import 'package:ditonton_dicoding_flutter/domain/entities/season_detail.dart';
 import 'package:ditonton_dicoding_flutter/domain/entities/tvseries.dart';
 import 'package:ditonton_dicoding_flutter/common/exception.dart';
 import 'package:ditonton_dicoding_flutter/common/failure.dart';
@@ -126,10 +127,10 @@ class TvSeriesRepositoryImpl implements TvSeriesRepository {
   }
 
   @override
-  Future<Either<Failure, String>> getSeasons(int tvId, int seasonNumber) async {
+  Future<Either<Failure, SeasonDetail>> getSeasons(int tvId, int seasonNumber) async {
     try {
       final result = await remoteDataSource.getSeasons(tvId, seasonNumber);
-      return Right(result);
+      return Right(result.toEntity());
     } on ServerException {
       return const Left(ServerFailure(''));
     } on SocketException {

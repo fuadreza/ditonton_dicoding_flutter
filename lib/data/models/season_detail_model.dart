@@ -1,37 +1,41 @@
-import 'package:ditonton_dicoding_flutter/domain/entities/season.dart';
+import 'package:ditonton_dicoding_flutter/data/models/episode_model.dart';
+import 'package:ditonton_dicoding_flutter/domain/entities/season_detail.dart';
 import 'package:equatable/equatable.dart';
 
-class SeasonModel extends Equatable {
-  const SeasonModel({
+class SeasonDetailModel extends Equatable {
+  const SeasonDetailModel({
     required this.airDate,
     required this.episodeCount,
     required this.id,
     required this.name,
     required this.posterPath,
     required this.seasonNumber,
+    required this.episodes,
   });
 
   final String? airDate;
-  final int episodeCount;
-  final int id;
-  final String name;
+  final int? episodeCount;
+  final int? id;
+  final String? name;
   final String? posterPath;
-  final int seasonNumber;
+  final int? seasonNumber;
+  final List<EpisodesModel>? episodes;
 
-  factory SeasonModel.fromJson(json) {
-    return SeasonModel(
+  factory SeasonDetailModel.fromJson(json) {
+    return SeasonDetailModel(
       airDate: json['air_date'],
       episodeCount: json['episode_count'],
       id: json['id'],
       name: json['name'],
       posterPath: json['poster_path'],
       seasonNumber: json['season_number'],
+      episodes: List<EpisodesModel>.from((json["episodes"] ?? []).map((x) => EpisodesModel.fromJson(x))),
     );
   }
 
-  static List<SeasonModel> toList(json) {
+  static List<SeasonDetailModel> toList(json) {
     final List list = json as List<dynamic>;
-    final List<SeasonModel> listMapped = list.map<SeasonModel>(SeasonModel.fromJson).toList();
+    final List<SeasonDetailModel> listMapped = list.map<SeasonDetailModel>(SeasonDetailModel.fromJson).toList();
     return listMapped;
   }
 
@@ -43,17 +47,20 @@ class SeasonModel extends Equatable {
     data['name'] = name;
     data['poster_path'] = posterPath;
     data['season_number'] = seasonNumber;
+    data['season_number'] = seasonNumber;
+    data['episodes'] = (episodes ?? []).map((v) => v.toJson()).toList();
     return data;
   }
 
-  Season toEntity() {
-    return Season(
+  SeasonDetail toEntity() {
+    return SeasonDetail(
       airDate: airDate,
-      episodeCount: episodeCount,
-      id: id,
-      name: name,
+      episodeCount: episodeCount ?? 1,
+      id: id ?? 0,
+      name: name ?? '',
       posterPath: posterPath,
-      seasonNumber: seasonNumber,
+      seasonNumber: seasonNumber ?? 1,
+      episodes: (episodes ?? []).map((episode) => episode.toEntity()).toList(),
     );
   }
 
@@ -65,5 +72,6 @@ class SeasonModel extends Equatable {
         name,
         posterPath,
         seasonNumber,
+        episodes,
       ];
 }
