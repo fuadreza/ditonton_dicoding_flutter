@@ -1,3 +1,4 @@
+import 'package:ditonton_dicoding_flutter/domain/entities/season_detail.dart';
 import 'package:equatable/equatable.dart';
 
 class TvSeriesDetailSeasonState extends Equatable {
@@ -11,14 +12,14 @@ class TvSeriesDetailSeasonStateLoading extends TvSeriesDetailSeasonState {}
 
 class TvSeriesDetailSeasonStateLoaded extends TvSeriesDetailSeasonState {
   const TvSeriesDetailSeasonStateLoaded({
-    this.message,
+    required this.seasonDetail,
   });
 
-  final String? message;
+  final SeasonDetail seasonDetail;
 
   @override
   List<Object?> get props => [
-        message,
+        seasonDetail,
       ];
 }
 

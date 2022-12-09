@@ -12,7 +12,7 @@ class SeasonDetail extends Equatable {
     required this.episodes,
   });
 
-  final String? airDate;
+  final String airDate;
   final int episodeCount;
   final int id;
   final String name;

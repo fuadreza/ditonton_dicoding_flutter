@@ -54,10 +54,10 @@ class SeasonDetailModel extends Equatable {
 
   SeasonDetail toEntity() {
     return SeasonDetail(
-      airDate: airDate,
+      airDate: airDate ?? '-',
       episodeCount: episodeCount ?? 1,
       id: id ?? 0,
-      name: name ?? '',
+      name: name ?? '-',
       posterPath: posterPath,
       seasonNumber: seasonNumber ?? 1,
       episodes: (episodes ?? []).map((episode) => episode.toEntity()).toList(),

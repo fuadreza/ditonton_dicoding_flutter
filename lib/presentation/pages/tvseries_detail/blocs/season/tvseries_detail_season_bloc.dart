@@ -15,8 +15,8 @@ class TvSeriesDetailSeasonBloc extends Cubit<TvSeriesDetailSeasonState> {
       (failure) {
         emit(TvSeriesDetailSeasonStateFailed(message: failure.message));
       },
-      (tvSeriesData) {
-        emit(TvSeriesDetailSeasonStateLoaded(message: 'Success'));
+      (data) {
+        emit(TvSeriesDetailSeasonStateLoaded(seasonDetail: data));
       },
     );
   }
