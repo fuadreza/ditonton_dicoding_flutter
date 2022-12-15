@@ -14,7 +14,6 @@ class MovieDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('MASHOOKK');
     return MultiBlocProvider(
       providers: [
         BlocProvider(

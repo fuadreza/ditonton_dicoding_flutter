@@ -1,4 +1,4 @@
-import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/widgets/labels/sub_heading.dart';
+import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/widgets/labels/sub_heading.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/widgets/lists/now_playing_tvseries_list.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/widgets/lists/popular_tvseries_list.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/widgets/lists/top_rated_tvseries_list.dart';
