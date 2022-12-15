@@ -208,8 +208,8 @@ void init() {
   //#endregion HELPER
 
   //#region EXTERNAL
-  locator.registerLazySingleton(
-    () => HttpSSLPinning.client,
-  );
+  // locator.registerLazySingleton(
+  //   () => HttpSSLPinning.client,
+  // );
   //#endregion EXTERNAL
 }

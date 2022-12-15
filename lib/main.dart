@@ -1,8 +1,12 @@
-import 'package:ditonton_dicoding_flutter/common/constants.dart';
-import 'package:ditonton_dicoding_flutter/common/securities/http_ssl_pinning.dart';
-import 'package:ditonton_dicoding_flutter/common/utils.dart';
+// import 'package:ditonton_dicoding_flutter/common/constants.dart';
+// import 'package:ditonton_dicoding_flutter/common/securities/http_ssl_pinning.dart';
+// import 'package:ditonton_dicoding_flutter/common/utils.dart';
+import 'package:core/constants.dart';
+import 'package:core/securities/http_ssl_pinning.dart';
+import 'package:core/utils.dart';
 import 'package:ditonton_dicoding_flutter/firebase_options.dart';
 import 'package:ditonton_dicoding_flutter/injection.dart' as di;
+import 'package:movie/injection.dart' as movie_injection;
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/home_page.dart';
 import 'package:ditonton_dicoding_flutter/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,6 +19,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   di.init();
+  movie_injection.init();
   runApp(const MyApp());
 }
 

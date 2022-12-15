@@ -1,11 +1,11 @@
 import 'package:ditonton_dicoding_flutter/presentation/pages/about/about_page.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/home_movie/home_movie_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/home_tvseries/home_tvseries_page.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/search_movie/search_movie_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/search_tvseries/search_tvseries_page.dart';
-import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_movies/watchlist_movies_page.dart';
 import 'package:ditonton_dicoding_flutter/presentation/pages/watchlist_tvseries/watchlist_tvseries_page.dart';
 import 'package:flutter/material.dart';
+import 'package:movie/presentation/pages/home_movie/home_movie_page.dart';
+import 'package:movie/presentation/pages/search_movie/search_movie_page.dart';
+import 'package:movie/presentation/pages/watchlist_movies/watchlist_movies_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
