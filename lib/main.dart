@@ -1,11 +1,9 @@
-// import 'package:ditonton_dicoding_flutter/common/constants.dart';
-// import 'package:ditonton_dicoding_flutter/common/securities/http_ssl_pinning.dart';
-// import 'package:ditonton_dicoding_flutter/common/utils.dart';
 import 'package:core/constants.dart';
 import 'package:core/securities/http_ssl_pinning.dart';
 import 'package:core/utils.dart';
 import 'package:ditonton_dicoding_flutter/firebase_options.dart';
-import 'package:ditonton_dicoding_flutter/injection.dart' as di;
+import 'package:core/injection.dart' as core_injection;
+import 'package:tvseries/injection.dart' as tvseries_injection;
 import 'package:movie/injection.dart' as movie_injection;
 import 'package:ditonton_dicoding_flutter/presentation/pages/home/home_page.dart';
 import 'package:ditonton_dicoding_flutter/routes.dart';
@@ -18,7 +16,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  di.init();
+  core_injection.init();
+  tvseries_injection.init();
   movie_injection.init();
   runApp(const MyApp());
 }
