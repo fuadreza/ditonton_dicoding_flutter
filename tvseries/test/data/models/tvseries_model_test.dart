@@ -2,6 +2,8 @@ import 'package:tvseries/data/models/tvseries_model.dart';
 import 'package:tvseries/domain/entities/tvseries.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../../dummy_data/dummy_objects.dart';
+
 void main() {
   const tTvSeriesModel = TvSeriesModel(
     backdropPath: '/path.jpg',
@@ -30,5 +32,15 @@ void main() {
   test('should be a subclass of TvSeries entity', () async {
     final result = tTvSeriesModel.toEntity();
     expect(result, tTvSeries);
+  });
+
+  test('should be a Map', () async {
+    final result = testTvSeriesModel.toJson();
+    expect(result, testTvSeriesModelMap);
+  });
+
+  test('should be from Map', () async {
+    final result = TvSeriesModel.fromJson(testTvSeriesModelMap);
+    expect(result, testTvSeriesModel);
   });
 }
