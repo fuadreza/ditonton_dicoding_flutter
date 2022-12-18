@@ -21,5 +21,11 @@ void main() {
       await tester.pumpWidget(createWidget());
       expect(find.byType(Text), findsNWidgets(2));
     });
+
+    testWidgets('Testing Find Title', (WidgetTester tester) async {
+      final finder = find.text(testMovie.title ?? '-');
+      await tester.pumpWidget(createWidget());
+      expect(finder, findsOneWidget);
+    });
   });
 }

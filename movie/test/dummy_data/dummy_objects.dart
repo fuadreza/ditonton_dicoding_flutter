@@ -68,4 +68,9 @@ const testGenreModel = GenreModel(id: 1, name: 'Genre A');
 
 const testGenre = Genre(id: 1, name: 'Genre A');
 
+const testGenreMap = {
+  'id': 1,
+  'name': 'Genre A'
+};
+
 //#endregion GENRE

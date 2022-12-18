@@ -22,5 +22,11 @@ void main() {
       await tester.pumpWidget(createWidget());
       expect(find.byType(Text), findsOneWidget);
     });
+
+    testWidgets('Testing Find Text', (WidgetTester tester) async {
+      final finder = find.text('Tidak ada daftar');
+      await tester.pumpWidget(createWidget());
+      expect(finder, findsOneWidget);
+    });
   });
 }
