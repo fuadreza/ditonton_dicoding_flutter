@@ -1,8 +1,6 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:tvseries/data/models/genre_model.dart';
-import 'package:tvseries/data/models/tvseries_detail_model.dart';
 import 'package:tvseries/data/models/tvseries_model.dart';
 import 'package:core/exception.dart';
 import 'package:core/failure.dart';
@@ -180,36 +178,13 @@ void main() {
 
   group('Get TvSeries Detail', () {
     const tId = 1;
-    const tTvSeriesResponse = TvSeriesDetailModel(
-      adult: false,
-      backdropPath: 'backdropPath',
-      genres: [GenreModel(id: 1, name: 'Action')],
-      homepage: "https://google.com",
-      id: 1,
-      originalLanguage: 'en',
-      overview: 'overview',
-      popularity: 1,
-      posterPath: 'posterPath',
-      status: 'Status',
-      tagline: 'Tagline',
-      voteAverage: 1,
-      voteCount: 1,
-      firstAirDate: 'releaseDate',
-      lastAirDate: '',
-      name: 'name',
-      numberOfEpisodes: 1,
-      numberOfSeasons: 1,
-      originalName: 'originalName',
-      type: '',
-      seasons: [],
-    );
 
     test(
         'should return TvSeries data when the call to remote data source is successful',
         () async {
       // arrange
       when(mockRemoteDataSource.getTvSeriesDetail(tId))
-          .thenAnswer((_) async => tTvSeriesResponse);
+          .thenAnswer((_) async => testTvSeriesDetailModel);
       // act
       final result = await repository.getTvSeriesDetail(tId);
       // assert
