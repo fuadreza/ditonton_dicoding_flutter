@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/constants.dart';
-import 'package:movie/domain/entities/genre.dart';
 import 'package:movie/domain/entities/movie_detail.dart';
 import 'package:movie/presentation/pages/movie_detail/blocs/detail/movie_detail_bloc.dart';
 import 'package:movie/presentation/pages/movie_detail/widgets/lists/recommendation_movie_list.dart';
@@ -71,10 +70,10 @@ class DetailMovieContent extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              _showGenres(movie.genres),
+                              movie.showGenres(),
                             ),
                             Text(
-                              _showDuration(movie.runtime),
+                              movie.showDuration(),
                             ),
                             Row(
                               children: [
@@ -140,29 +139,5 @@ class DetailMovieContent extends StatelessWidget {
         )
       ],
     );
-  }
-
-  String _showGenres(List<Genre> genres) {
-    String result = '';
-    for (var genre in genres) {
-      result += '${genre.name}, ';
-    }
-
-    if (result.isEmpty) {
-      return result;
-    }
-
-    return result.substring(0, result.length - 2);
-  }
-
-  String _showDuration(int runtime) {
-    final int hours = runtime ~/ 60;
-    final int minutes = runtime % 60;
-
-    if (hours > 0) {
-      return '${hours}h ${minutes}m';
-    } else {
-      return '${minutes}m';
-    }
   }
 }

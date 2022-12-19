@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/constants.dart';
-import 'package:tvseries/domain/entities/genre.dart';
 import 'package:tvseries/domain/entities/tvseries_detail.dart';
 import 'package:tvseries/presentation/pages/tvseries_detail/blocs/detail/tvseries_detail_bloc.dart';
 import 'package:tvseries/presentation/pages/tvseries_detail/widgets/lists/recommendation_tvseries_list.dart';
@@ -72,7 +71,7 @@ class DetailTvSeriesContent extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              _showGenres(tvSeries.genres),
+                              tvSeries.showGenres(),
                             ),
                             Row(
                               children: [
@@ -153,18 +152,5 @@ class DetailTvSeriesContent extends StatelessWidget {
         )
       ],
     );
-  }
-
-  String _showGenres(List<Genre> genres) {
-    String result = '';
-    for (var genre in genres) {
-      result += '${genre.name}, ';
-    }
-
-    if (result.isEmpty) {
-      return result;
-    }
-
-    return result.substring(0, result.length - 2);
   }
 }

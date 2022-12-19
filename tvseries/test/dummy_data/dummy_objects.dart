@@ -2,6 +2,7 @@ import 'package:tvseries/data/models/episode_model.dart';
 import 'package:tvseries/data/models/genre_model.dart';
 import 'package:tvseries/data/models/season_detail_model.dart';
 import 'package:tvseries/data/models/season_model.dart';
+import 'package:tvseries/data/models/tvseries_detail_model.dart';
 import 'package:tvseries/data/models/tvseries_model.dart';
 import 'package:tvseries/data/models/tvseries_table.dart';
 import 'package:tvseries/domain/entities/episode.dart';
@@ -26,7 +27,7 @@ final testTvSeriesList = [testTvSeries];
 const testTvSeriesDetail = TvSeriesDetail(
   adult: false,
   backdropPath: 'backdropPath',
-  genres: [Genre(id: 1, name: 'Action')],
+  genres: [testGenre],
   id: 1,
   originalName: 'originalName',
   overview: 'overview',
@@ -37,6 +38,54 @@ const testTvSeriesDetail = TvSeriesDetail(
   name: 'name',
   seasons: [],
 );
+
+const testTvSeriesDetailModel = TvSeriesDetailModel(
+  adult: false,
+  backdropPath: 'backdropPath',
+  genres: [testGenreModel],
+  id: 1,
+  originalName: 'originalName',
+  overview: 'overview',
+  posterPath: 'posterPath',
+  firstAirDate: 'releaseDate',
+  voteAverage: 1,
+  voteCount: 1,
+  name: 'name',
+  seasons: [],
+  homepage: '',
+  lastAirDate: '',
+  numberOfEpisodes: 1,
+  numberOfSeasons: 1,
+  originalLanguage: '',
+  popularity: 100,
+  status: '',
+  tagline: '',
+  type: '',
+);
+
+const testTvSeriesDetailModelMap = {
+  'adult': false,
+  'backdrop_path': 'backdropPath',
+  'genres': [testGenreMap],
+  'id': 1,
+  'original_name': 'originalName',
+  'overview': 'overview',
+  'poster_path': 'posterPath',
+  'first_air_date': 'releaseDate',
+  'vote_average': 1,
+  'vote_count': 1,
+  'name': 'name',
+  'seasons': [],
+  'homepage': '',
+  'last_air_date': '',
+  'number_of_episodes': 1,
+  'number_of_seasons': 1,
+  'original_language': '',
+  'popularity': 100,
+  'status': '',
+  'tagline': '',
+  'type': '',
+};
 
 final testWatchlistTvSeries = TvSeries.watchlist(
   id: 1,
@@ -55,7 +104,7 @@ const testTvSeriesTable = TvSeriesTable(
 const testTvSeriesModel = TvSeriesModel(
   backdropPath: '/path.jpg',
   firstAirDate: '22',
-  genreIds: [1,2,3],
+  genreIds: [1, 2, 3],
   id: 1,
   name: 'name',
   originCountry: ['en'],
@@ -71,7 +120,7 @@ const testTvSeriesModel = TvSeriesModel(
 const testTvSeriesModelMap = {
   'backdrop_path': '/path.jpg',
   'first_air_date': '22',
-  'genre_ids': [1,2,3],
+  'genre_ids': [1, 2, 3],
   'id': 1,
   'name': 'name',
   'origin_country': ['en'],
@@ -147,9 +196,7 @@ const testSeasonDetailMap = {
   'name': 'Season 1',
   'poster_path': '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
   'season_number': 1,
-  'episodes': [
-    testEpisodeMap
-  ],
+  'episodes': [testEpisodeMap],
 };
 
 const testSeasonDetailMapList = [
@@ -160,9 +207,7 @@ const testSeasonDetailMapList = [
     'name': 'Season 1',
     'poster_path': '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
     'season_number': 1,
-    'episodes': [
-      testEpisodeMap
-    ],
+    'episodes': [testEpisodeMap],
   }
 ];
 

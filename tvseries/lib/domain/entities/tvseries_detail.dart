@@ -31,6 +31,19 @@ class TvSeriesDetail extends Equatable {
   final int voteCount;
   final List<Season> seasons;
 
+  String showGenres() {
+    String result = '';
+    for (var genre in genres) {
+      result += '${genre.name}, ';
+    }
+
+    if (result.isEmpty) {
+      return result;
+    }
+
+    return result.substring(0, result.length - 2);
+  }
+
   @override
   List<Object?> get props => [
         adult,
