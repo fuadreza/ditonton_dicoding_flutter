@@ -123,7 +123,9 @@ const testSeasonDetailModel = SeasonDetailModel(
   name: 'Season 1',
   posterPath: '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
   seasonNumber: 1,
-  episodes: [],
+  episodes: [
+    testEpisodeModel,
+  ],
 );
 
 const testSeasonDetail = SeasonDetail(
@@ -133,7 +135,9 @@ const testSeasonDetail = SeasonDetail(
   name: 'Season 1',
   posterPath: '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
   seasonNumber: 1,
-  episodes: [],
+  episodes: [
+    testEpisode,
+  ],
 );
 
 const testSeasonDetailMap = {
@@ -143,7 +147,9 @@ const testSeasonDetailMap = {
   'name': 'Season 1',
   'poster_path': '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
   'season_number': 1,
-  'episodes': [],
+  'episodes': [
+    testEpisodeMap
+  ],
 };
 
 const testSeasonDetailMapList = [
@@ -154,7 +160,9 @@ const testSeasonDetailMapList = [
     'name': 'Season 1',
     'poster_path': '/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg',
     'season_number': 1,
-    'episodes': [],
+    'episodes': [
+      testEpisodeMap
+    ],
   }
 ];
 

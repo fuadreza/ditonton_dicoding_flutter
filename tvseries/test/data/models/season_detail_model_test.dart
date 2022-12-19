@@ -4,9 +4,9 @@ import 'package:tvseries/data/models/season_detail_model.dart';
 import '../../dummy_data/dummy_objects.dart';
 
 void main() {
-  test('should be a subclass of Season entity', () async {
-    final result = testSeasonModel.toEntity();
-    expect(result, testSeason);
+  test('should be a subclass of Season Detail entity', () async {
+    final result = testSeasonDetailModel.toEntity();
+    expect(result, testSeasonDetail);
   });
 
   test('should be a Map', () async {

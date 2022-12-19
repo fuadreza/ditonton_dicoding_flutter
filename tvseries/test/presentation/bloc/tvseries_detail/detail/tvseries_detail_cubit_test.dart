@@ -77,6 +77,18 @@ void main() {
     );
 
     blocTest<TvSeriesDetailBloc, TvSeriesDetailState>(
+      'emits states for unsuccessful add watchlist',
+      setUp: () {
+        when(mockSaveWatchlistTvSeries.execute(testTvSeriesDetail)).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
+      },
+      build: () => tvSeriesDetailBloc,
+      act: (cubit) => cubit.addWatchList(testTvSeriesDetail),
+      expect: () => [
+        const TvSeriesDetailStateLoaded(tvSeries: testTvSeriesDetail, isAddedToWatchList: false, message: 'Server Failure'),
+      ],
+    );
+
+    blocTest<TvSeriesDetailBloc, TvSeriesDetailState>(
       'emits states for successful remove watchlist',
       setUp: () {
         when(mockRemoveWatchlistTvSeries.execute(testTvSeriesDetail)).thenAnswer((_) async => const Right('Removed from Watchlist'));
@@ -87,6 +99,19 @@ void main() {
       act: (cubit) => cubit.removeFromWatchList(testTvSeriesDetail),
       expect: () => [
         const TvSeriesDetailStateLoaded(tvSeries: testTvSeriesDetail, isAddedToWatchList: false, message: 'Removed from Watchlist'),
+      ],
+    );
+
+    blocTest<TvSeriesDetailBloc, TvSeriesDetailState>(
+      'emits states for unsuccessful remove watchlist',
+      setUp: () {
+        when(mockRemoveWatchlistTvSeries.execute(testTvSeriesDetail)).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
+        tvSeriesDetailBloc.isAddedToWatchList = true;
+      },
+      build: () => tvSeriesDetailBloc,
+      act: (cubit) => cubit.removeFromWatchList(testTvSeriesDetail),
+      expect: () => [
+        const TvSeriesDetailStateLoaded(tvSeries: testTvSeriesDetail, isAddedToWatchList: true, message: 'Server Failure'),
       ],
     );
   });
