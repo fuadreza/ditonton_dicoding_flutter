@@ -32,3 +32,37 @@ Connect device with debugging on using adb and run project with:
 flutter run lib/main.dart
 ```
 
+## Testing
+
+**Step 1:**
+
+Go to terminal and move to one of the modules (movie, or tvseries)
+
+````
+cd movie/
+````
+
+**Step 2:**
+
+Run flutter test with coverage
+
+```
+flutter test --coverage
+```
+
+**Step 3:**
+
+Generate html using third party like lcov
+
+```
+genhtml coverage/lcov.info -o coverage/html
+```
+
+**Step 4:**
+
+After finishing with one module, go to another module and repeat the process
+
+## Special Thanks To 
+
+**Dicoding**
+**IDCamp Indosat Ooredoo**
