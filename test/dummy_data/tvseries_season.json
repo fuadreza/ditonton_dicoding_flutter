@@ -1,0 +1,22 @@
+{
+  "air_date": "",
+  "episode_count": 1,
+  "id": 171559,
+  "name": "Season 1",
+  "overview": "",
+  "poster_path": "/sB2DASpJtfnTs7iK3RqkUMFVDEa.jpg",
+  "season_number": 1,
+  "episodes": [
+    {
+      "air_date": "10-10-2020",
+      "episode_number": 1,
+      "id": 1,
+      "name": "Episode",
+      "overview": "overview",
+      "runtime": 1,
+      "season_number": 1,
+      "vote_average": 1.0,
+      "vote_count": 10
+    }
+  ]
+}
