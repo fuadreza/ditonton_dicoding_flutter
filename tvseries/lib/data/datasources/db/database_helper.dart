@@ -22,7 +22,7 @@ class DatabaseHelper {
 
   Future<Database> _initDb() async {
     final path = await getDatabasesPath();
-    final databasePath = '$path/ditonton.db';
+    final databasePath = '$path/ditonton_tvseries.db';
 
     var db = await openDatabase(databasePath, version: 1, onCreate: _onCreate);
     return db;
